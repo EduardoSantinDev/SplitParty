@@ -1,0 +1,84 @@
+h3 {
+	color: rgb(57, 34, 120); 
+	font-size: 175%;
+	font-family:"Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+body {
+	background-color: rgb(229, 229, 229) !important;
+}
+
+#menu{
+    text-align: center;
+	background-color: rgb(79, 64, 115);
+}
+
+#menu-2{
+    text-align: center;
+	background-color: rgb(255, 255, 255);
+}
+
+.content{
+    text-align: left;
+ background-color: rgb(255, 255, 255);
+ font-family:"Comic Sans MS", "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+.img{
+    max-width: 256px;
+    max-height: 256px;
+}
+
+.video{
+    min-width: 560px;
+    min-height: 315px;
+}
+
+#teste{
+	padding: 10px 0px 0px;
+}
+
+.icon{
+    max-width: 64px;
+    max-height: 64px;
+}
+
+.card{
+	align-items: center;
+	max-width: 30em;
+	background-color: rgb(100, 100, 100);
+	padding: 10px;
+}
+
+.container-fluid{
+	padding: 10px;
+}
+
+#logo{
+	width: 40%;
+    height: auto;
+}
+
+.logo-menu{
+    padding: 40px;
+}
+
+#poster{
+    max-width: 256px;
+    max-height: 365px;
+}
+
+#flista{
+    min-width: 100%;
+}
+
+#login-card{
+    border-radius: 10px;
+}
+
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+    display: flex;
+    align-items: center;
+}
