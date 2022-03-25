@@ -10,7 +10,6 @@ body {
 
 #menu{
     text-align: center;
-	background-color: rgb(79, 64, 115);
 }
 
 #menu-2{
@@ -59,8 +58,18 @@ body {
     height: auto;
 }
 
+#logo2{
+	width: auto;
+    height: 55px;
+    padding: 10px;
+}
+
 .logo-menu{
     padding: 40px;
+}
+
+h10{
+    text-align: left;
 }
 
 #poster{
@@ -81,4 +90,9 @@ body {
     min-height: 100vh; /* These two lines are counted as one :-)       */
     display: flex;
     align-items: center;
+}
+
+header {
+    background: white;
+    height: 55px;
 }
