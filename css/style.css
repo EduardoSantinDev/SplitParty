@@ -1,98 +1,221 @@
 h3 {
-	color: rgb(57, 34, 120); 
-	font-size: 175%;
-	font-family:"Segoe UI", Tahoma, Arial, sans-serif;
+    color: rgb(57, 34, 120);
+    font-size: 175%;
+    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+}
+
+#main-content {
+    margin: 25px;
+    max-width: 100%;
+    min-height: 30vh;
+    border-radius: 10px;
+}
+
+#add-button-row {
+    display: flex;
+    flex-direction: row;
+    margin-right: 25px;
+    margin-left: 25px;
+    max-width: 100%;
+    height: 6vh;
+}
+
+#task-form {
+    flex: 1 1 0%;
+    background-color: #ffffff;
+    height: 100%;
+    min-width: 15vh;
+    border-radius: 3vh;
+    font-size: 18px;
+    color: white;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    margin-right: 10px;
+}
+
+#tag-input {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    height: 100%;
+    width: 100%;
+    font-size: 18px;
+    color: #000000;
+}
+
+.button1 {
+    background-color: #38acff;
+    height: 100%;
+    min-width: 15vh;
+    border-radius: 3vh;
+    border: none;
+    font-size: 18px;
+    color: white;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    transition-duration: 0.2s;
+}
+
+.button1:hover {
+    background-color: #1c86d1;
 }
 
 body {
-	background-color: rgb(229, 229, 229) !important;
+    background-color: rgb(229, 229, 229) !important;
 }
 
-#menu{
+#menu {
     text-align: center;
 }
 
-#menu-2{
-    text-align: center;
-	background-color: rgb(255, 255, 255);
-}
-
-.content{
+.content {
     text-align: left;
- background-color: rgb(255, 255, 255);
- font-family:"Comic Sans MS", "Segoe UI", Tahoma, Arial, sans-serif;
+    background-color: rgb(255, 255, 255);
+    font-family: "Comic Sans MS", "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
-.img{
-    max-width: 256px;
-    max-height: 256px;
-}
-
-.video{
-    min-width: 560px;
-    min-height: 315px;
-}
-
-#teste{
-	padding: 10px 0px 0px;
-}
-
-.icon{
-    max-width: 64px;
-    max-height: 64px;
-}
-
-.card{
-	align-items: center;
-	max-width: 30em;
-	background-color: rgb(100, 100, 100);
-	padding: 10px;
-}
-
-.container-fluid{
-	padding: 10px;
-}
-
-#logo{
-	width: 40%;
-    height: auto;
-}
-
-#logo2{
-	width: auto;
-    height: 55px;
+.card {
+    align-items: center;
+    max-width: 30em;
+    background-color: rgb(255, 255, 255);
     padding: 10px;
 }
 
-.logo-menu{
+.container-fluid {
+    padding: 10px;
+}
+
+#logo {
+    height: auto;
+    max-width: 16vh;
+}
+
+.logo-menu {
     padding: 40px;
 }
 
-h10{
-    text-align: left;
-}
-
-#poster{
+#poster {
     max-width: 256px;
     max-height: 365px;
 }
 
-#flista{
-    min-width: 100%;
-}
-
-#login-card{
+#login-card {
     border-radius: 10px;
 }
 
 .vertical-center {
-    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-    min-height: 100vh; /* These two lines are counted as one :-)       */
+    min-height: 100%;
+    min-height: 100vh;
     display: flex;
     align-items: center;
 }
 
-header {
-    background: white;
-    height: 55px;
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body,
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+a:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+#header {
+    box-sizing: border-box;
+    height: 70px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFFFFF;
+}
+
+#menu {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+#menu a {
+    display: block;
+    padding: 0.5rem;
+}
+
+#btn-mobile {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    #menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        background: #FFFFFF;
+        transition: 0.6s;
+        z-index: 1000;
+        height: 0px;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    #nav.active #menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+    #menu a {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    }
+    #btn-mobile {
+        display: flex;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: 0.5rem;
+    }
+    #hamburger {
+        border-top: 2px solid;
+        width: 20px;
+    }
+    #hamburger::after,
+    #hamburger::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: 0.3s;
+        position: relative;
+    }
+    #nav.active #hamburger {
+        border-top-color: transparent;
+    }
+    #nav.active #hamburger::before {
+        transform: rotate(135deg);
+    }
+    #nav.active #hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
 }
