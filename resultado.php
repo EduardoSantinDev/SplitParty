@@ -1,3 +1,17 @@
+<?php 
+
+include 'config.php';
+
+session_start();
+
+if (isset($_SESSION['username'])) {
+    
+} else {
+    header("Location: index.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,20 +26,20 @@
 
 <body>
     <header id="header">
-        <a id="logo" href="./participantes.html">
+        <a id="logo" href="./index.php">
             <img alt="SplitParty" id="logo" src="./images/logo.png">
         </a>
         <nav id="nav">
             <button id="btn-mobile">
                 <span id="hamburger"></span>
               </button>
-            <ul id="menu" role="menu">
-                <li><a href="./tags.html">Tags</a></li>
-                <li><a href="./participantes.html">Participantes</a></li>
-                <li><a href="./produtos.html">Produtos</a></li>
-                <li><a href="./resultado.html">Resultado</a></li>
-                <li><a href="./sobre.html">Sobre</a></li>
-                <li><a href="./index.html">Sair</a></li>
+              <ul id="menu" role="menu">
+                <li><a class="menu-links" href="./tags.php">Tags</a></li>
+                <li><a class="menu-links" href="./participantes.php">Participantes</a></li>
+                <li><a class="menu-links"href="./produtos.php">Produtos</a></li>
+                <li><a class="menu-links active"href="./resultado.php">Resultado</a></li>
+                <li><a class="menu-links"href="./sobre.php">Sobre</a></li>
+                <li><a class="menu-links"href="./logout.php"><?php echo $_SESSION['username']; ?> - Sair</a></li>
             </ul>
         </nav>
     </header>
