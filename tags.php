@@ -55,7 +55,12 @@ if (isset($_SESSION['user_id'])) {
                     if (mysqli_num_rows($res1) > 0) {
                         foreach ($res1 as $tag) {
                     ?>
-                    <?php getTag($tag); ?>
+                        <div class="row-content">
+                                <input type="text" class="text-input" class="text" value="<?= $tag['name']?>" readonly>
+                                <a href="action.php?deleteTag=<?=$tag['id']?>" class="button2">
+                                    <img alt="delete button" class="show_row_buttons" src="./images/delete.png">
+                                </a>
+                        </div>
                     <?php } }
                 ?>
             </div>

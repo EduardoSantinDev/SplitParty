@@ -44,8 +44,8 @@ if (isset($_SESSION['username'])) {
     <section>
         <div id="add-button-row">
             <form id="new-input-form" action="" method="POST">
-                <input type="text" class="new-text-input" placeholder="Nome do Produto" name="nameProduto" value="<?php if (isset($_POST["addProduto"])) {echo $_POST['nameProduto'];} ?>" required>
-                <input type="number" step="0.01" class="new-text-input" placeholder="Preço do Produto" name="priceProduto" value="<?php if (isset($_POST["addProduto"])) {echo $_POST['priceProduto'];} ?>" required>
+                <input type="text" class="new-text-input" placeholder="Produto" name="nameProduto" value="<?php if (isset($_POST["addProduto"])) {echo $_POST['nameProduto'];} ?>" required>
+                <input type="number" step="0.01" class="new-text-input price" placeholder="Preço" name="priceProduto" value="<?php if (isset($_POST["addProduto"])) {echo $_POST['priceProduto'];} ?>" required>
                 <button type="submit" name="addProduto" class="button1">Adicionar Produto</button>
             </form>
         </div>
@@ -57,7 +57,36 @@ if (isset($_SESSION['username'])) {
                     if (mysqli_num_rows($res1) > 0) {
                         foreach ($res1 as $produto) {
                     ?>
-                    <?php getProduto($produto); ?>
+                    <div class="row-content">
+                            <input type="text" class="text-input" class="text" value="<?=$produto['name']?>" readonly>
+                            <input type="text" class="price-output-produto" class="text" value="R$ <?=$produto['price']?>" readonly>
+                            <form class="tag-submit-produto" action="" method="POST">
+                                <select name="tagID" class="tag-selector-produto" onchange="this.form.submit()" value="<?php if (isset($_POST["setProdutoTag"])) {echo $_POST['tagID'];} ?>">
+                                    <?php 
+                                        $sql1 = "SELECT * FROM tags WHERE user_id='{$_SESSION['user_id']}' ORDER BY id DESC";
+                                        $res1 = mysqli_query($conn, $sql1);
+                                        if (mysqli_num_rows($res1) > 0) {
+                                            foreach ($res1 as $tag) {
+                                                if ($produto['tag_id'] == $tag['id']) {
+                                                    ?>
+                                                        <option value="<?=$tag['id']?>" selected> <?=$tag['name']?></option>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                        <option value="<?=$tag['id']?>"> <?=$tag['name']?></option>
+                                                    <?php
+                                                }
+                                            }
+                                        }
+                                    ?>
+                                </select>
+                                <input type="hidden" name="produtoID" value="<?=$produto['id']?>">
+                                <input type="hidden" name="setProdutoTag" value="1">
+                            </form>
+                            <a href="action.php?deleteProduto=<?=$produto['id']?>" class="button2">
+                                <img alt="delete button" class="show_row_buttons" src="./images/delete.png">
+                            </a>
+                    </div>
                     <?php } }
                 ?>
             </div>

@@ -45,7 +45,28 @@ if (isset($_SESSION['username'])) {
     </header>
     <section>
         <div class="main-content">
-            <p>Copia não comédia</p>
+            <p><br></p>
+            <h3>Sobre nós</h3>
+            <nobr><a href="https://www.instagram.com/edu.ardodev/">@eduardo.dev</a>
+                (Desempregado)
+            </nobr>
+            <nobr><a href="https://www.instagram.com/__.kayo.__">@__.kayo.__</a>
+                (Agiota)
+            </nobr>
+            <nobr><a href="https://www.instagram.com/fabiano_isj/">@fabiano_isj</a>
+                (Engenheiro de Pipa)
+            </nobr>
+            <nobr><a href="https://www.instagram.com/santos_dieguh/">@santos_dieguh</a>
+                (Técnico do Grêmio)
+            </nobr>
+            <p><br></p>
+            <h3>Sobre o projeto</h3>
+            <p>
+                O SplitParty é um projeto escolar, idealizado e construído por Eduardo Santiago, Diego Santos, Kayo Rodrigues e Fabiano.<br>O objetivo é facilitar 
+                o gerenciamento de festas por meio do cálculo automático de valores a partir de informações de tags, preços e participantes.<br>
+                A ideia surgiu quando um dos programadores notou a dificuldade presente em organizar uma festa de fim de ano, com vários membros da família.<br>
+                O projeto está em desenvolvimento ativo e passa por mudanças contantes, podendo acarretar em ocasionais quedas ou mudanças de dados.
+            </p>
         </div>
     </section>
     <footer>

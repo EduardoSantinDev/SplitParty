@@ -1,8 +1,6 @@
 <?php 
 
-include 'config.php';
-
-session_start();
+include 'action.php';
 
 if (isset($_SESSION['username'])) {
     
@@ -44,7 +42,46 @@ if (isset($_SESSION['username'])) {
         </nav>
     </header>
     <section>
+        
+        <div class="main-content">
+            <div class="show-rows">
+                <?php 
+                    $sql1 = "SELECT * FROM participantes WHERE user_id='{$_SESSION['user_id']}' ORDER BY id DESC";
+                    $res1 = mysqli_query($conn, $sql1);
 
+                    if (mysqli_num_rows($res1) > 0) {
+                        foreach ($res1 as $participante) {
+                    ?>
+                    <div class="row-content">
+                            <input type="text" class="text-input" class="text" value="<?=$participante['name']?>" readonly>
+                            
+                            <form class="tag-submit-pago" action="" method="POST">
+                                <?php 
+                                    if ($participante['paid'] == 1) {
+                                        ?>
+                                            <input type = "checkbox" checked onchange="this.form.submit()" class="paid-input" name = "participantePaid" value="1">
+                                        <?php
+                                    } else {
+                                        ?>
+                                            <input type = "checkbox" onchange="this.form.submit()" class="paid-input" name = "participantePaid" value="1">
+                                        <?php
+                                    }
+                                ?>
+                                <input type="hidden" name="participanteID" value="<?=$participante['id']?>">
+                                <input type="hidden" name="setParticipantePaid" value="1">
+                            </form>
+                            <input type="text" class="price-output" class="text" value="R$ " readonly>
+                    </div>
+                    <?php } }
+                ?>
+            </div>
+        </div>
+        <div id="add-button-row">
+            <form id="new-input-form" action="" method="POST">
+                <input type="text" class="new-text-input" placeholder="Nome do Participante" name="nameParticipante" value="Valor Total:  R$" required>
+                <input type="text" class="new-text-input" placeholder="Nome do Participante" name="nameParticipante" value="Valor Pago:  R$" required>
+            </form>
+        </div>
     </section>
     <footer>
 
